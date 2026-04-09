@@ -1,4 +1,6 @@
 const copyButton = document.querySelector("[data-copy-target]");
+const availabilityMessage = document.getElementById("availability-message");
+const noticeButtons = document.querySelectorAll("[data-notice]");
 
 async function copyBibtex(targetId) {
   const target = document.getElementById(targetId);
@@ -28,5 +30,14 @@ async function copyBibtex(targetId) {
 if (copyButton) {
   copyButton.addEventListener("click", () => {
     copyBibtex(copyButton.dataset.copyTarget);
+  });
+}
+
+if (availabilityMessage && noticeButtons.length > 0) {
+  noticeButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      availabilityMessage.textContent = button.dataset.notice;
+      availabilityMessage.hidden = false;
+    });
   });
 }

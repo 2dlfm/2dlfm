@@ -30,7 +30,7 @@
           <span class="author-separator">|</span>
           Irhas Gill<sup>2*</sup>
           <span class="author-separator">|</span>
-          L&#225;szl&#243; A. Jeni<sup>1</sup>
+          Laszlo Jeni<sup>1</sup>
           <span class="author-separator">|</span>
           Simon Lucey<sup>2</sup>
         </p>
@@ -39,40 +39,34 @@
           <span class="author-separator">|</span>
           <sup>2</sup>Adelaide University
         </p>
-        <p class="status-note author-note"><sup>*</sup> Equal contribution.</p>
 
         <div class="button-row" role="group" aria-label="Project links">
-          <a
+          <button
             class="button primary"
-            href="paper.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
+            type="button"
+            data-notice="Code and arXiv paper are not public yet. We're working on it."
           >
             Paper
-          </a>
-          <a
+          </button>
+          <button
             class="button"
-            href="https://github.com/2dlfm/2dlfm"
-            target="_blank"
-            rel="noopener noreferrer"
+            type="button"
+            data-notice="Code and arXiv paper are not public yet. We're working on it."
           >
             Code
-          </a>
+          </button>
           <a class="button" href="#abstract">Abstract</a>
           <a class="button" href="#bibtex">BibTeX</a>
         </div>
-
-        <p class="status-note">
-          Add arXiv, poster, or video links here once those are public.
-        </p>
+        <p class="status-note availability-message" id="availability-message" aria-live="polite" hidden></p>
       </section>
     </header>
 
     <main class="site-shell">
-      <section class="content-card" id="results">
+      <section class="content-card main-figure-card" id="results">
         <div class="section-heading">
-          <h2>Comparison with VGGT</h2>
-          <p>Given only 2D landmarks, 2D-LFM recovers cleaner object-specific 3D structure than depth-based lifting through VGGT.</p>
+          <h2>2D-LFM vs. VGGT</h2>
+          <p>Our main result: with only 2D landmarks, 2D-LFM recovers cleaner object-specific 3D structure than depth-based lifting through VGGT.</p>
         </div>
 
         <figure class="teaser-figure">
@@ -87,29 +81,29 @@
         </figure>
 
         <p class="figure-caption">
-          Main paper figure comparing our 2D-only lifting model against VGGT, with ground truth in red and predictions in blue.
+          2D-LFM produces more faithful object-specific 3D structure than VGGT-based lifting from single-image landmarks. Ground truth is shown in red and predictions in blue.
         </p>
       </section>
 
       <section class="content-card" id="overview">
         <div class="section-heading">
-          <h2>Architecture Overview</h2>
-          <p>2D-LFM preserves landmark correspondence by injecting positional encoding at every attention layer instead of only once at the input.</p>
+          <h2>Correspondence-Preserving Transformer</h2>
+          <p>2D-LFM preserves landmark identity by reinjecting positional encoding at every attention layer, enabling stable 2D-to-3D lifting under only 2D supervision.</p>
         </div>
 
         <figure class="teaser-figure">
           <picture>
-            <source srcset="assets/overview.webp" type="image/webp">
+            <source srcset="assets/overview-screenshot.webp" type="image/webp">
             <img
               class="teaser-image"
-              src="assets/overview.png"
-              alt="Architecture overview diagram for the 2D-LFM model"
+              src="assets/overview-screenshot.png"
+              alt="Correspondence-preserving transformer architecture for the 2D-LFM model"
             >
           </picture>
         </figure>
 
         <p class="figure-caption">
-          Architecture overview from the paper illustrating how repeated positional encoding preserves correspondence structure for 2D-to-3D lifting.
+          The architecture lifts 2D landmarks into canonical 3D structure while preserving correspondence through positional encoding injected into every transformer block.
         </p>
       </section>
 
@@ -140,11 +134,10 @@
         </div>
         <pre id="bibtex-block">@inproceedings{dabhi2026dlfm,
   title     = {2D-LFM: Lifting Foundation Model without 3D Supervision},
-  author    = {Dabhi, Mosam and Gill, Irhas and Jeni, Laszlo A. and Lucey, Simon},
+  author    = {Dabhi, Mosam and Gill, Irhas and Jeni, Laszlo and Lucey, Simon},
   booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
   year      = {2026}
 }</pre>
-        <p class="status-note">Update the year or citation key if your final camera-ready citation differs.</p>
       </section>
     </main>
 
